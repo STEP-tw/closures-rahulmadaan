@@ -45,8 +45,19 @@ const makeDeltaTracker = function(tracker){
   }
 }
 
-
-const makeFiboGenerator = undefined; 
+const makeFiboGenerator = function (one,two) {
+  let termOne = one + two;
+  let termTwo = two;
+  let fiboTerm = 0;
+  if(one == undefined && two == undefined) { termOne =1, termTwo=1}
+  if(one!=undefined  && two == undefined) { termTwo=one, termOne=one; }
+  return function() {
+    fiboTerm = termOne - termTwo;
+    termOne = termOne + termTwo;
+    termTwo = termOne - termTwo;
+    return fiboTerm;
+  }
+}
 
 const makeCycler = function(inputArray) {
   let index = -1;
@@ -65,9 +76,9 @@ const makeCycler = function(inputArray) {
 const compose = function(functionOne,functionTwo) {
   return function(arguementOne,arguementTwo) {
     if(!arguementTwo) {
-    let output = functionTwo(arguementOne);
-    return functionOne(output);
-  }
+      let output = functionTwo(arguementOne);
+      return functionOne(output);
+    }
     let output = functionTwo(arguementOne,arguementTwo);
     return functionOne(output);
   }
