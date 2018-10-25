@@ -49,15 +49,17 @@ const makeDeltaTracker = function(tracker){
 const makeFiboGenerator = undefined; 
 
 const makeCycler = function(inputArray) {
-//  let index = -1;
-//  let input1 = inputArray;
-//  return function() {
-//    let input = input1;
-//    let length = input.length;
-//    ++index;
-//    if(index >= length) {index = 0;}
-//    return input[index];
-//  }
+  let index = -1;
+  let input = [];
+  for(let value of inputArray) {
+    input.push(value);
+  }
+  return function() {
+    let length = input.length;
+    ++index;
+    if(index >= length) {index = 0;}
+    return input[index];
+  }
 }
 
 const compose = undefined;
