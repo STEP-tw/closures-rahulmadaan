@@ -13,7 +13,14 @@ const makeCounterFromN = function(number) {
   }
 };
 
-const curry = undefined;
+curry = function(functionName,arguement_1) {
+  return function(arguement_2,arguement_3) {
+    if(!arguement_3) {
+      return functionName(arguement_1,arguement_2);
+    }
+    return functionName(arguement_1,arguement_2,arguement_3);
+  }
+}
 
 // counter starts from zero
 const makeCounterFromZero = function() {
@@ -25,8 +32,20 @@ const makeCounterFromZero = function() {
 }
 
 const makeDeltaTracker = undefined; 
-const makeFiboGenerator = undefined;
-const makeCycler = undefined;
+const makeFiboGenerator = undefined; 
+
+const makeCycler = function(inputArray) {
+//  let index = -1;
+//  let input1 = inputArray;
+//  return function() {
+//    let input = input1;
+//    let length = input.length;
+//    ++index;
+//    if(index >= length) {index = 0;}
+//    return input[index];
+//  }
+}
+
 const compose = undefined;
 
 exports.makeConstant=makeConstant;
