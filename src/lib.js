@@ -62,7 +62,16 @@ const makeCycler = function(inputArray) {
   }
 }
 
-const compose = undefined;
+const compose = function(functionOne,functionTwo) {
+  return function(arguementOne,arguementTwo) {
+    if(!arguementTwo) {
+    let output = functionTwo(arguementOne);
+    return functionOne(output);
+  }
+    let output = functionTwo(arguementOne,arguementTwo);
+    return functionOne(output);
+  }
+}
 
 exports.makeConstant=makeConstant;
 exports.makeCounterFromZero=makeCounterFromZero;
