@@ -61,10 +61,7 @@ const makeFiboGenerator = function (one,two) {
 
 const makeCycler = function(inputArray) {
   let index = -1;
-  let input = [];
-  for(let value of inputArray) {
-    input.push(value);
-  }
+  let input = inputArray.slice(0,inputArray.length);
   return function() {
     let length = input.length;
     ++index;
