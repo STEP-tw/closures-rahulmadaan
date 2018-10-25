@@ -1,6 +1,15 @@
 const makeConstant = undefined;
-const makeCounterFromN = undefined;
+// start counter from any number
+const makeCounterFromN = function(number) {
+ let count = number - 1;
+  return function() {
+    count++;
+    return count;
+  }
+};
+
 const curry = undefined;
+
 // counter starts from zero
 const makeCounterFromZero = function() {
  let count = -1;
