@@ -31,7 +31,21 @@ const makeCounterFromZero = function() {
   }  
 }
 
-const makeDeltaTracker = undefined; 
+const makeDeltaTracker = function(tracker){
+  let deltaValue = 0;
+  let oldValue = tracker;
+  let newValue = tracker;
+  return function(deltaInput) {
+    if(!deltaInput) {deltaInput = 0}
+    oldValue = oldValue + deltaValue;
+    deltaValue = deltaInput;
+    newValue = oldValue + deltaValue;
+    let deltaObject = {old : oldValue , delta : deltaValue , new : newValue };
+    return deltaObject;
+  }
+}
+
+
 const makeFiboGenerator = undefined; 
 
 const makeCycler = function(inputArray) {
